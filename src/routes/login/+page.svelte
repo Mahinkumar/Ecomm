@@ -1,5 +1,6 @@
 <!--Login-->
 <script>
+    import '$lib/app.css'
     let is_registered = true;
     $: is_registered;
 

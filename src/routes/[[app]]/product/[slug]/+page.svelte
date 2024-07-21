@@ -1,21 +1,6 @@
 <!--Individual Products-->
-
 <script>
-
- 
     export let data;
-    let item_count = 0;
-
-    function add_item(){
-        if (item_count < data.details[0].stock){
-            item_count += 1;
-        }
-    }
-    function remove_item(){
-        if (item_count != 0){
-            item_count -= 1;
-        }
-    }
 </script>
 
 <div class="h-full">
@@ -33,7 +18,9 @@
         <h1>Availible stock: {data.details[0].stock}</h1>
         <h1>Total Sold: {data.details[0].sales_count}</h1>
         <h1>Section: {data.details[0].section}</h1>
-        
+
+        <h1>On Cart: {data.detail2.length != false ? data.detail2[0].quantity : 0 }</h1>
+
         <h1 class="text-3xl pt-10 pb-10">₹ {data.details[0].price}</h1>
         <form method="post">
         <div class="flex space-y-1">
