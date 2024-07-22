@@ -1,6 +1,8 @@
 <!--Login-->
 <script>
     import '$lib/app.css'
+    export let form;
+
     let is_registered = true;
     $: is_registered;
 
@@ -30,45 +32,27 @@
         <div>
             <h2 class="text-xl text-center font-semibold">Welcome</h2>
             <h3 class="text-md text-center">Login / Signup</h3>
+            {#if form?.success == false}<h3 class="text-md text-center">{form?.state}</h3>{/if}
         </div>
-        <form class="flex flex-col justify-center items-center pt-2">
+        <form class="flex flex-col justify-center items-center pt-2" method="post">
             <input
                 class="m-1 p-4 rounded-lg shadow-2xl bg-gray-300 w-4/5"
                 type="email"
                 placeholder="E-Mail"
+                name="email"
                 required
             />
             <input
                 class="m-1 p-4 rounded-lg shadow-2xl bg-gray-300 w-4/5"
                 type="password"
                 placeholder="Password"
+                name="password"
                 required
             />
-            {#if is_registered == false}
-                <input
-                    class="m-1 p-4 rounded-lg shadow-2xl bg-gray-300 w-4/5"
-                    type="date"
-                    placeholder="Date of Birth"
-                    required
-                />
-                <input
-                    class="m-1 p-4 rounded-lg shadow-2xl bg-gray-300 w-4/5"
-                    type="tel"
-                    pattern="[0-9]{10}"
-                    required
-                    placeholder="Mobile Number"
-                />
-                <input
-                    class="m-1 p-4 rounded-lg shadow-2xl bg-gray-300 w-4/5"
-                    type="text"
-                    placeholder="Address"
-                    required
-                />
-            {/if}
+            
             <button
+                formaction="?/Login"
                 class="bg-blue-600 my-[1svh] p-2 w-4/5 rounded-lg hover:shadow-md transition-all duration-700 hover:shadow-cyan-600"
-                type="submit"
-                on:click={update}
             >
                 {is_registered == true ? "Login" : "Register"}
             </button>

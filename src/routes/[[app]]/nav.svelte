@@ -103,7 +103,7 @@
                     />
                 </svg>
             </button>
-            <button class="flex">
+            <a class="flex" href="{Username=="Log in" ? '/login': '/user'}">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -119,7 +119,7 @@
                     />
                 </svg>
                 {Username}
-            </button>
+            </a>
             <button class="flex">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

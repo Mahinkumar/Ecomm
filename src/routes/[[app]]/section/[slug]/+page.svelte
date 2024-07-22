@@ -1,7 +1,6 @@
 <!--Individual Sections-->
 <script>
     export let data;
-    console.log(data.details);
 </script>
 
 <div class="flex flex-col items-center">

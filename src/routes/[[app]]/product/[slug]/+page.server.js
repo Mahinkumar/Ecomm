@@ -29,7 +29,13 @@ export const actions = {
         if (cart.length == false) {
             const cart_sn = await db.select().from(carts).orderBy(desc(carts.sno));
             console.log(cart_sn)
-            let cart_s = Number(cart_sn[0].sno) + 1
+            let cart_s;
+            if (cart_sn[0] === undefined){
+                cart_s = 1;
+            }else{
+                cart_s = Number(cart_sn[0].sno) + 1
+            }
+            
             await db.insert(carts).values({ sno: cart_s, cart_id: 1, user_id: 3, product_id: pid, quantity: cnt });
         } else {
             let count;
