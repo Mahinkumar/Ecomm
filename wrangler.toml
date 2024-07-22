@@ -1,3 +1,0 @@
-name = "ecomm"
-pages_build_output_dir = "./sveltekit/output"
-compatibility_flags = [ "nodejs_compat" ]
