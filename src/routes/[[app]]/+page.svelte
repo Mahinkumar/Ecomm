@@ -49,15 +49,23 @@
             </div>
         </div>
     </div>
-    <div class="grid grid-cols-5">
+    <div class="text-2xl p-4 pb-0 font-bold">Limited time Deals</div>
+    <div class="grid lg:grid-cols-6 md:grid-cols-5 grid-cols-4">
         {#each Object.entries(data.all) as product_items,products}
-            <div class="w-64 h-96 bg-gray-200 text-center flex flex-col items-center border-2 border-stone-400">
-                <div class="w-56 h-56 flex flex-col justify-center">
+            <div class="w-64 h-96 text-center flex flex-col items-center  justify-center">
+                <div class="relative w-56 h-56 flex flex-col justify-center bg-gray-200 rounded-lg">
                     <img src="/products/{product_items[1].product_image}" alt="{product_items[1].name} Image" class="p-8">
+                    {#if product_items[1].stock <= 50}
+                    <div class="absolute top-2 left-2 mt-2 bg-green-500 font-bold text-white rounded-md w-32 h-8 flex justify-center items-center">Low on stock</div>
+                    {/if}
                 </div>
-                <h1 class="rounded-md w-32 h-8 font-bold">₹ {product_items[1].price} </h1>
-                <h1 class="text-lg font-bold">{product_items[1].name}</h1>
-                <a class="ml-4 mt-8 bg-white rounded-md w-32 h-8 flex justify-center items-center" href="/product/{product_items[1].url}">Buy Now</a>
+                <div class="flex w-56 pl-2">
+                    <h1 class="text-lg font-semibold text-left">{product_items[1].name}</h1>
+                    <h1 class="rounded-md w-32 h-8 font-extrabold text-xl text-right pr-2">₹ {product_items[1].price} </h1>
+                </div>
+                <div class="flex justify-center w-52 ">
+                <a class="mt-2 bg-red-500 font-bold text-white rounded-md w-52 h-8 flex justify-center items-center" href="/product/{product_items[1].url}">Buy Now</a>
+                </div>
             </div>
         {/each}
     </div>

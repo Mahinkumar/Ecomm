@@ -2,10 +2,16 @@ import { db } from '$lib/server/db/index';
 import { eq, lt, gte, ne,and, sum } from 'drizzle-orm';
 import { user } from '$lib/server/db/schema';
 import { carts, products } from '../../../lib/server/db/schema.js';
+import { redirect } from '@sveltejs/kit';
+
 
 export async function load({ cookies }) {
     let name = cookies.get('name');
     let uid = cookies.get('user_id');
+
+    if (uid==undefined){
+        throw redirect(303, '/login');
+    }
 
     const details = await db.select({
         name : products.name,

@@ -25,8 +25,12 @@ export const actions = {
             throw redirect(303, '/login');
         }else{
         
-        const cnt = data.get("itemcount");
+        let cnt = data.get("itemcount");
         const pid = data.get("prodid");
+
+        if (cnt === ''){
+            return;
+        }
         
         const cart = await db.select().from(carts).where(eq(carts.product_id, pid));
         

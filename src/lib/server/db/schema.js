@@ -24,7 +24,8 @@ export const products = pgTable("products",{
     product_description: text("product_description"),
     sales_count: integer("sales_count"),
     sales_code: integer("sales_code"),
-    url: varchar("url")
+    url: varchar("url"),
+    accent: text("Accent")
 })
 
 export const sales = pgTable("sales" ,{
