@@ -54,7 +54,7 @@
         {#each Object.entries(data.all) as product_items,products}
             <div class="w-64 h-96 text-center flex flex-col items-center  justify-center">
                 <div class="relative w-56 h-56 flex flex-col justify-center bg-gray-200 rounded-lg">
-                    <img src="/products/{product_items[1].product_image}" alt="{product_items[1].name} Image" class="p-8">
+                    <img src="https://wvkbvwnwjdcztpdqdizj.supabase.co/storage/v1/object/public/Ecomm/{product_items[1].product_image}" alt="{product_items[1].name} Image" class="p-8">
                     {#if product_items[1].stock <= 50}
                     <div class="absolute top-2 left-2 mt-2 bg-green-500 font-bold text-white rounded-md w-32 h-8 flex justify-center items-center">Low on stock</div>
                     {/if}

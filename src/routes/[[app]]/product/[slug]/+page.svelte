@@ -8,7 +8,7 @@
     <div class="w-2/3 h-full flex flex-col justify-evenly">
         <h1 class="text-7xl p-6 font-semibold">{data.details[0].name}</h1>
         <div class="flex justify-center">
-            <img src="/products/{data.details[0].product_image}" alt="Name" class="aspect-auto h-96 p-8">
+            <img src="https://wvkbvwnwjdcztpdqdizj.supabase.co/storage/v1/object/public/Ecomm/{data.details[0].product_image}" alt="Name" class="aspect-auto h-96 p-8">
         </div>
     </div>
     <div class="w-1/3 h-full flex flex-col lg:justify-evenly md:justify-center p-5 text-xl">

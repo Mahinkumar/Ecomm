@@ -10,7 +10,7 @@
         >
             <div class="w-56 h-56 flex flex-col justify-center">
                 <img
-                    src="/products/{sections[1].product_image}"
+                    src="https://wvkbvwnwjdcztpdqdizj.supabase.co/storage/v1/object/public/Ecomm/{sections[1].product_image}"
                     alt="{sections[1].name} Image"
                     class="p-8"
                 />

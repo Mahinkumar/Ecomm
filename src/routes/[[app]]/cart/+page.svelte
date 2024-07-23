@@ -16,7 +16,7 @@
         >
             <div class="w-56 h-56 flex flex-col justify-center">
                 <img
-                    src="/products/{sections[1].image_path}"
+                    src="https://wvkbvwnwjdcztpdqdizj.supabase.co/storage/v1/object/public/Ecomm/{sections[1].image_path}"
                     alt="{sections[1].name} Image"
                     class="p-16"
                 />
