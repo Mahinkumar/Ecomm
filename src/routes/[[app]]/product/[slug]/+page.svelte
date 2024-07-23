@@ -26,7 +26,7 @@
         <div class="flex space-y-1">
             <h1 class="text-3xl flex">Quantity:</h1>
             <input type ="hidden" name ="prodid" value ="{data.details[0].product_id}"/>
-            <input type="number" name="itemcount" class="border-2 border-black m-3 w-12 p-1">
+            <input type="number" name="itemcount" min="0" class="border-2 border-black m-3 w-12 p-1">
         </div>
         <div class="flex space-x-6">
         <a class="mt-8 bg-orange-500 hover:bg-orange-700 rounded-md w-32 h-8 flex justify-center items-center" href="/product/{data.details[0].url}">Buy Now</a>

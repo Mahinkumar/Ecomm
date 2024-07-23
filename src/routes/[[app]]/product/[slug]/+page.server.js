@@ -4,7 +4,7 @@ import { eq, lt, gte, ne } from 'drizzle-orm';
 import { products } from '$lib/server/db/schema';
 import { carts } from '$lib/server/db/schema.js';
 import { asc, desc } from 'drizzle-orm';
-
+import { redirect } from '@sveltejs/kit';
 
 
 export async function load({ params }) {
@@ -16,9 +16,14 @@ export async function load({ params }) {
 }
 
 export const actions = {
-    update_cart: async ({ request }) => {
+    update_cart: async ({ cookies,request }) => {
+        let uid = cookies.get('user_id');
         
         const data = await request.formData();
+
+        if (uid==undefined){
+            throw redirect(303, '/login');
+        }else{
         
         const cnt = data.get("itemcount");
         const pid = data.get("prodid");
@@ -45,5 +50,6 @@ export const actions = {
             }
 
         }
+    }
     },
 };
