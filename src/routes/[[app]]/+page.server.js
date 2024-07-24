@@ -18,7 +18,7 @@ export const load = (async () => {
 export const actions = {
     search: async ({ request }) => {
         const data = await request.formData();
-        let search = data.get("search");
+        let search = data.get("searcher");
         let string = "/search/" + search
         throw redirect(303, string);
     },

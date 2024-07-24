@@ -2,6 +2,7 @@ import { error } from '@sveltejs/kit';
 import { db } from '$lib/server/db/index';
 import { eq, lt, gte, ne ,ilike} from 'drizzle-orm';
 import { products } from '$lib/server/db/schema';
+import { redirect } from '@sveltejs/kit';
 
 
 export async function load({ params }) {
@@ -11,5 +12,14 @@ export async function load({ params }) {
         details
     }
 }
+
+export const actions = {
+    search: async ({ request }) => {
+        const data = await request.formData();
+        let search = data.get("searcher");
+        let string = "/search/" + search
+        throw redirect(303, string);
+    },
+};
 
 

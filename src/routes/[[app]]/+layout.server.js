@@ -22,3 +22,5 @@ export const load = (async ({ cookies }) => {
         sect, prod_count,name
     };
 });
+
+

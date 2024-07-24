@@ -34,7 +34,7 @@
                 type="text"
                 class="rounded-2xl h-8 p-2 mr-2 w-full"
                 placeholder="Search"
-                name="search"
+                name="searcher"
             />
             <input type="submit" formaction="search/?/search" hidden />
             <button type="submit" class="rounded-2xl p-1 bg-white">

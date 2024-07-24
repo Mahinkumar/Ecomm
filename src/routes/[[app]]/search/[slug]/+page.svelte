@@ -2,7 +2,6 @@
     export let data;
 </script>
 
-
 <div class="flex flex-col items-center">
     {#each Object.entries(data.details) as sections, products}
     {#if sections[1].stock>0}
