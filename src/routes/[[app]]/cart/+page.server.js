@@ -18,7 +18,6 @@ export async function load({ cookies }) {
         Quantity: carts.quantity,
         price: products.price,
         image_path: products.product_image
-
     })
     .from(carts)
     .where(and(eq(carts.user_id,uid),ne(carts.quantity,0)))

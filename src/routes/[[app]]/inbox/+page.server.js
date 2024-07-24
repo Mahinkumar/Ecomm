@@ -26,4 +26,10 @@ export const actions = {
         const all = await db.select().from(sales).where(and(eq(sales.user_id,uid),eq(sales.transaction_id,tid)));
         console.log(all)
     },  
+    search: async ({ request }) => {
+        const data = await request.formData();
+        let search = data.get("searcher");
+        let string = "/search/" + search
+        throw redirect(303, string);
+    },
 };

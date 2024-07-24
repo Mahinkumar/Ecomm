@@ -2,7 +2,7 @@
 import { db } from '$lib/server/db/index';
 import { eq, lt, gte, ne } from 'drizzle-orm';
 import { products } from '$lib/server/db/schema';
-import { carts } from '$lib/server/db/schema.js';
+import { carts,user } from '$lib/server/db/schema.js';
 import { asc, desc } from 'drizzle-orm';
 import { redirect } from '@sveltejs/kit';
 
@@ -33,8 +33,8 @@ export const actions = {
         }
         
         const cart = await db.select().from(carts).where(eq(carts.product_id, pid));
-        
-        
+        const cart_id = await db.select().from(user).where(eq(user.user_id, uid));
+        const cart_val = cart_id[0].user_id;
         if (cart.length == false) {
             const cart_sn = await db.select().from(carts).orderBy(desc(carts.sno));
             let cart_s;
@@ -44,7 +44,7 @@ export const actions = {
                 cart_s = Number(cart_sn[0].sno) + 1
             }
             
-            await db.insert(carts).values({ sno: cart_s, cart_id: 1, user_id: 3, product_id: pid, quantity: cnt });
+            await db.insert(carts).values({ sno: cart_s, cart_id: cart_val , user_id: uid, product_id: pid, quantity: cnt });
         } else {
             let count;
             count = Number(cart[0].quantity) + Number(cnt);
@@ -61,4 +61,6 @@ export const actions = {
         let string = "/search/" + search
         throw redirect(303, string);
     },
+    
+    
 };

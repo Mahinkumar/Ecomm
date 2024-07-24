@@ -6,7 +6,7 @@
 
 <main transition:fade>
     <!--Main Sale-->
-    <div class="h-[50svh] flex ">
+    <div class="h-[50svh] flex">
         <div class="w-1/2 bg-white p-2">
             <div class="w-full h-full bg-gradient-to-b from-violet-600 to-indigo-600 rounded-lg flex">
                 <div class="p-8 w-1/2 h-full rounded-lg flex justify-center flex-col">

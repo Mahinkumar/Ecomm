@@ -3,7 +3,7 @@
     import { fade } from 'svelte/transition';
 </script>
 
-<div class="flex flex-col items-center" transition:fade>
+<div class="flex flex-col items-center h-screen" transition:fade>
     {#each Object.entries(data.details) as sections, products}
     {#if sections[1].stock>0}
         <div
