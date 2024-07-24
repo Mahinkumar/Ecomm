@@ -1,7 +1,9 @@
 <script>
     export let data;
+    import { fade } from 'svelte/transition';
 </script>
-<div class="flex">
+
+<div class="flex" transition:fade>
 <div class="flex flex-col w-[70svw] h-[80svh]">
     <h1 class="p-5 font-bold text-5xl">Your cart</h1>
     <hr class="border-1 border-black">

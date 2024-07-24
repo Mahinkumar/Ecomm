@@ -9,10 +9,11 @@
     function update() {
         is_registered = !is_registered;
     }
+    import { crossfade } from 'svelte/transition';
 </script>
 
-<main class="w-screen h-screen bg-white flex justify-center">
-    <div class="w-96 {is_registered == true ? 'h-[50svh]' : 'h-[80svh]'} transition-all duration-700 bg-gray-200 place-self-center rounded-xl shadow-md shadow-gray-400">
+<main class="w-screen h-screen bg-white flex justify-center" transition:crossfade>
+    <div class="w-96 {is_registered == true ? 'h-[50svh]' : 'h-[70svh]'} transition-all duration-700 bg-gray-200 place-self-center rounded-xl shadow-md shadow-gray-400">
         <div class="p-5 flex justify-center">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +32,11 @@
         </div>
         <div>
             <h2 class="text-xl text-center font-semibold">Welcome</h2>
-            <h3 class="text-md text-center">Login / Signup</h3>
+            <h3 class="text-md text-center">
+                <button on:click={update} class="text-blue-800 hover:text-blue-700">
+                   {!is_registered ? 'Sign In' : 'Sign up for an account'} 
+                </button>
+            </h3>
             {#if form?.success == false}<h3 class="text-md text-center">{form?.state}</h3>{/if}
         </div>
         <form class="flex flex-col justify-center items-center pt-2" method="post">
@@ -49,9 +54,24 @@
                 name="password"
                 required
             />
-            
+            {#if is_registered == false}
+                <input
+                    class="m-1 p-4 rounded-lg shadow-2xl bg-gray-300 w-4/5"
+                    type="text"
+                    placeholder="Name"
+                    name="Name"
+                    required
+                />
+                <input
+                    class="m-1 p-4 rounded-lg shadow-2xl bg-gray-300 w-4/5"
+                    type="text"
+                    placeholder="Address"
+                    name="Address"
+                    required
+                />
+            {/if}
             <button
-                formaction="?/Login"
+                formaction="{is_registered == true ? "?/Login" : "?/Register"}"
                 class="bg-blue-600 my-[1svh] p-2 w-4/5 rounded-lg hover:shadow-md transition-all duration-700 hover:shadow-cyan-600"
             >
                 {is_registered == true ? "Login" : "Register"}

@@ -1,9 +1,10 @@
 <!--Individual Sections-->
 <script>
     export let data;
+    import { fade } from 'svelte/transition';
 </script>
 
-<div class="flex flex-col items-center">
+<div class="flex flex-col items-center h-screen" transition:fade>
     <h1 class="text-5xl p-5">Deals on {data.details[0].section}</h1>
     <div class="grid grid-cols-3">
     {#each Object.entries(data.details) as sections, products}

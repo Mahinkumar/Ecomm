@@ -37,7 +37,6 @@ export const actions = {
         
         if (cart.length == false) {
             const cart_sn = await db.select().from(carts).orderBy(desc(carts.sno));
-            console.log(cart_sn)
             let cart_s;
             if (cart_sn[0] === undefined){
                 cart_s = 1;

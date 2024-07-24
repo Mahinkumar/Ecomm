@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Lato'; 
+    src: url("../fonts/Lato-Regular.woff2") format("woff2");
+    font-display: swap;
+  }
+  
+  @layer components{
+      *{
+          @apply font-primary
+      }
+  }

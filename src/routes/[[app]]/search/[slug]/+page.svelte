@@ -1,8 +1,9 @@
 <script>
     export let data;
+    import { fade } from 'svelte/transition';
 </script>
 
-<div class="flex flex-col items-center">
+<div class="flex flex-col items-center" transition:fade>
     {#each Object.entries(data.details) as sections, products}
     {#if sections[1].stock>0}
         <div

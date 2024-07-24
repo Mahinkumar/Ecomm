@@ -1,6 +1,7 @@
 <script>
 import "$lib/app.css";
 import Nav from "./nav.svelte";
+import Foot from "./foot.svelte";
 
 let curr_page = "Home";
 let section = "Today's Deals";
@@ -14,3 +15,4 @@ let Username = data.name;
 
 <Nav {curr_page}{section}{Username}{data}{sections}{prod_cnt}/>
 <slot></slot>
+<Foot {sections}/>
