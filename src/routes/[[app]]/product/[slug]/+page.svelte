@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="w-1/3 h-full flex flex-col lg:justify-evenly md:justify-center p-5 text-xl">
-        <div class="text-3xl pb-10 font-medium">{data.details[0].product_description}</div>
+        <div class="text-2xl pb-5 font-medium">{data.details[0].product_description}</div>
         <div class="flex justify-between w-56">
             <h1>Availible stock:</h1>
             <h1 class="{data.details[0].stock < 50 ? 'text-red-700 font-bold': ''}">{data.details[0].stock}</h1>
@@ -30,7 +30,9 @@
         <hr class="w-56 border-1 border-neutral-500">
 
         <h1 class="text-3xl pt-10 pb-10">₹ {data.details[0].price}</h1>
-        <h1>Item Already on Cart : {data.detail2.length != false ? data.detail2[0].quantity : 0 } Nos. </h1>
+        {#if data.detail2.length != false}
+        <h1>Item Already on Cart : {data.detail2[0].quantity} Nos. </h1>
+        {/if}
         <form method="post">
         <div class="flex">
             <h1 class="text-3xl flex m-4 ml-0">Quantity:</h1>
@@ -38,7 +40,7 @@
             <input type="number" name="itemcount" placeholder="0" min="0" class="border-2 border-black  w-12 m-4 p-1">
         </div>
         <div class="flex space-x-6">
-        <button class="mt-8 {data.details[0].stock<=0? 'bg-orange-600':'hover:bg-blue-700'} font-bold bg-blue-600 text-white rounded-md w-72 h-12 flex justify-center items-center" href="/product/{data.details[0].url}" formaction="?/update_cart" disabled="{data.details[0].stock<=0}">{data.details[0].stock<=0? 'Out of Stock':'Add to cart'}</button>
+        <button class="mt-8 mb-16 {data.details[0].stock<=0? 'bg-orange-600':'hover:bg-blue-700'} font-bold bg-blue-600 text-white rounded-md w-72 h-12 flex justify-center items-center" href="/product/{data.details[0].url}" formaction="?/update_cart" disabled="{data.details[0].stock<=0}">{data.details[0].stock<=0? 'Out of Stock':'Add to cart'}</button>
         </form>
     </div>
 </div>

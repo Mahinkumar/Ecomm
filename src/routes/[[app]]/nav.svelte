@@ -9,7 +9,7 @@
 
 
 
-<nav class="fixed w-screen">
+<nav class="fixed w-screen z-40">
     <nav class="flex w-full h-12 items-center bg-white ">
         <div class="w-1/3 flex justify-start p-8 space-x-12">
                 <a href="/" class="flex">
