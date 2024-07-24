@@ -3,10 +3,15 @@ import { user } from '$lib/server/db/schema';
 import { eq, lt, gte, ne,and } from 'drizzle-orm';
 import { transactions } from '$lib/server/db/schema';
 import { redirect } from '@sveltejs/kit';
-import { sales } from '../../../lib/server/db/schema.js';
+import { sales } from '$lib/server/db/schema.js';
 
 export const load = (async ({cookies}) => {
     let uid = cookies.get('user_id');
+
+    if (uid==undefined){
+        throw redirect(303, '/login');
+    }
+    
     const all = await db.select().from(transactions).where(eq(transactions.user_id,uid));
     return {     
         all
