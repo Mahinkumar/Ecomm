@@ -6,7 +6,7 @@
 
 <div class="flex flex-col items-center h-screen" transition:fade>
     <h1 class="text-5xl p-5">Deals on {data.details[0].section}</h1>
-    <div class="grid grid-cols-3">
+    <div class="grid grid-cols-3 gap-16">
     {#each Object.entries(data.details) as sections, products}
     {#if sections[1].stock>0}
     <div class="w-[35svw] h-36 text-center flex items-center  justify-center p-5">
