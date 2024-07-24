@@ -9,7 +9,7 @@
         {#if data.details.length==false}
         <h1 class="p-5 font-bold text-neutral-500 text-4xl">Add some products to get started</h1>
         {/if}
-        {#if data.details.length==true}
+        {#if data.details.length!=false}
     {#each Object.entries(data.details) as sections, products}
         <div
             class="h-32 text-left flex items-center text-xl"
@@ -76,9 +76,12 @@
                 <h1 class="text-xl">₹ {data.total}</h1>
             </div>
             {#if data.total>0}
-            <button class="bg-white w-full mt-4 mb-4 p-2 text-xl text-black items-center rounded-lg">
-                Checkout
-            </button>
+            <form method="post">
+                <input hidden="true" value="{data.total}" name="total">
+                <button class="bg-white w-full mt-4 mb-4 p-2 text-xl text-black items-center rounded-lg" formaction="?/purchase">
+                    Checkout
+                </button>
+            </form>
             {/if}
         </div>
     </div>

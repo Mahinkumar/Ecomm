@@ -1,10 +1,10 @@
 <!--Individual Products-->
 <script>
     export let data;
-    console.log(data.details[0])
+    import { blur } from 'svelte/transition';
 </script>
 
-<div class="h-[89svh] w-full flex bg-gradient-to-br from-neutral-200 to-{data.details[0].accent}-100">
+<div class="h-[89svh] w-full flex bg-gradient-to-br from-neutral-200 to-{data.details[0].accent}-100" transition:blur>
     <div class="w-2/3 h-full flex flex-col justify-evenly">
         <h1 class="text-7xl p-6 font-semibold">{data.details[0].name}</h1>
         <div class="flex justify-center">
@@ -38,7 +38,7 @@
             <input type="number" name="itemcount" placeholder="0" min="0" class="border-2 border-black  w-12 m-4 p-1">
         </div>
         <div class="flex space-x-6">
-        <button class="mt-8 bg-orange-500 hover:bg-orange-700 rounded-md w-72 h-12 flex justify-center items-center" href="/product/{data.details[0].url}" formaction="?/update_cart">Add to cart</button>
+        <button class="mt-8 {data.details[0].stock<=0? 'bg-orange-600':'hover:bg-blue-700'} font-bold bg-blue-600 text-white rounded-md w-72 h-12 flex justify-center items-center" href="/product/{data.details[0].url}" formaction="?/update_cart" disabled="{data.details[0].stock<=0}">{data.details[0].stock<=0? 'Out of Stock':'Add to cart'}</button>
         </form>
     </div>
 </div>

@@ -29,14 +29,14 @@
                 {curr_page}&nbsp | &nbsp{section}
             </h1>
         </div>
-        <div
-            class="w-1/3 flex justify-center border-2 border-stone-200 rounded-xl shadow-xs shadow-stone-500"
-        >
+        <form method="post" class="w-1/3 flex justify-center border-2 border-stone-200 rounded-xl shadow-xs shadow-stone-500">
             <input
                 type="text"
                 class="rounded-2xl h-8 p-2 mr-2 w-full"
                 placeholder="Search"
+                name="search"
             />
+            <input type="submit" formaction="search/?/search" hidden />
             <button type="submit" class="rounded-2xl p-1 bg-white">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@
                     />
                 </svg>
             </button>
-        </div>
+        </form>
         <div class="w-1/3 flex justify-between p-12">
             <button>
                 <svg

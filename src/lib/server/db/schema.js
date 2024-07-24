@@ -34,7 +34,7 @@ export const sales = pgTable("sales" ,{
     sell_price: integer("sell_price"),
     total_sale_amount: integer("total_sale_amount"),
     quantity_sold: integer("quantity_sold"),
-    sale_time: timestamp("sale_time"),
+    sale_time: timestamp("sale_time").defaultNow(),
     transaction_id: integer("transaction_id").references(()=>transactions.transaction_id)
 })
 
@@ -50,6 +50,6 @@ export const transactions = pgTable("transactions",{
     transaction_id: integer("transaction_id").primaryKey(),
     purchase_price: integer("purchase_price").notNull(),
     payment_method: varchar("payment_method"),
-    sale_time: timestamp("sale_time"),
+    sale_time: timestamp("sale_time").defaultNow(),
     user_id: integer("user_id").references(()=>user.user_id),
 })
