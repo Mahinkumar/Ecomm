@@ -1,38 +1,64 @@
-# create-svelte
+> [!WARNING]  
+> This Project is a working progress and is not recommended for production.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+# Micro Ecommerce Website Built with Sveltekit
+This is a simple ecommerce website project powered by <a href="https://kit.svelte.dev/">Sveltekit<a>, <a href="https://orm.drizzle.team/">Drizzle ORM<a> and <a href="https://www.postgresql.org/">PostgreSQL<a>. The Website utilizes Server Side Rendering in all pages. 
 
-## Creating a project
+</br>
 
-If you're seeing this, you've probably already done this step. Congrats!
+# To Use:
+```
+// Install required packages with
+npm install
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+//Create a .env file with the Postgres URL Environment Variable.
+1. ```DATABASE_URL=<Your Postgres connection URL>```
 
-# create a new project in my-app
-npm create svelte@latest my-app
+//Run Drizzle kit migrations with
+npx drizzle-kit generate 
+npx drizzle-kit push 
+npx drizzle-kit migrate
 ```
 
-## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+> [!TIP]
+> To check Schema you can use ```npx drizzle-kit studio```.
 
-```bash
+
+```
+//Run Development Server
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
+//Run Build
 npm run build
+
+//To preview the build
+npm run preview 
 ```
+> [!NOTE]  
+> Change Adapters for Sveltekit based on your choice of hosting platform.. The demo is being hosted on Vercel and hence uses vercel adapters
 
-You can preview the production build with `npm run preview`.
+</br>
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+
+## Roadmap 
+- [x] Build basic functionalities for the Ecomm Site.
+- [ ] Make Site Responsive
+
+### 1. Login
+- [x] Email Logins
+- [ ] Third party Oauth
+- [ ] Secure Session Handling
+
+### 2. Functionalities
+- [ ] Support for dynamic Layout and customizable tiling for products
+- [x] Search through products
+- [ ] Third Party Transaction Intergration
+- [ ] Customizable Suggestion Algorithms
+- [ ] User Settings
+
+### 3. Database
+- [ ] Make Database 3NF Compilant
+- [ ] Secure and Safe Deletion for users and Product Records
+- [ ] Optimized Queries
