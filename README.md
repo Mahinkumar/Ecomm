@@ -1,5 +1,5 @@
 > [!WARNING]  
-> This Project is a working progress and is not recommended for production.
+> This Project is a **work in progress** and is not recommended for production.
 > Some UX and UserFlow parts need a rewrite. 
 
 # Micro Ecommerce Website Built with Sveltekit
