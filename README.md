@@ -5,6 +5,7 @@
 # Micro Ecommerce Website Built with Sveltekit
 This is a simple ecommerce website project powered by <a href="https://kit.svelte.dev/">Sveltekit<a>, <a href="https://orm.drizzle.team/">Drizzle ORM<a> and <a href="https://www.postgresql.org/">PostgreSQL<a>. The Website utilizes Server Side Rendering in all pages. 
 
+### Expected to finish on Q1 2025 
 </br>
 
 # To Use:
