@@ -45,8 +45,11 @@ npm run preview
 
 
 ## Roadmap 
+### The Basics
 - [x] Build basic functionalities for the Ecomm Site.
-- [ ] Make Site Responsive
+- [ ] UI Revamp
+- [ ] Accessiblity
+- [ ] Responsive Design
 
 ### 1. Login
 - [x] Email Logins
